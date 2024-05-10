@@ -3,6 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { useEffect } from "react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -23,6 +24,10 @@ const formSchema = z.object({
 });
 
 export default function ProfileForm() {
+  useEffect(() => {
+    console.log("Hello");
+  }, []);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -35,8 +40,8 @@ export default function ProfileForm() {
   }
 
   return (
-    <div className="mx-auto w-1/2 h-screen space-y-20">
-      <h1 className="font-medium text-2xl flex justify-center pt-20">
+    <div className="w-1/2 h-screen mx-auto space-y-20">
+      <h1 className="flex justify-center pt-20 text-2xl font-medium">
         Rich Text Editor Developed Using Shadcn and Tiptap
       </h1>
       <Form {...form}>
