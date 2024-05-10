@@ -24,10 +24,6 @@ const formSchema = z.object({
 });
 
 export default function ProfileForm() {
-  useEffect(() => {
-    console.log("Hello");
-  }, []);
-
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
